@@ -19,13 +19,13 @@ use App\Http\Controllers\Formcontroller;
 use App\Http\Controllers\MasterTabCreationController;
 use App\Http\Controllers\OfficeMastersController;
 use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\RejectApprovedBeneficiaryController;
+
 use App\Http\Controllers\RoleOfficeTypeMappingsController;
 use App\Http\Controllers\RolePermisssionManagementController;
 use App\Http\Controllers\SchemeCapacityController;
 use App\Http\Controllers\SchemeController;
 use App\Http\Controllers\TrackBeneficiaryDetailsController;
-use App\Http\Controllers\UpdateBankDetailsController;
+
 use App\Http\Controllers\UserDutyManagementController;
 use App\Http\Controllers\UserPermissionController;
 use App\Http\Controllers\UsersController;
@@ -167,21 +167,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('application-lists', [Formcontroller::class, 'applicationLists'])->name('application-lists');
     Route::get('/define-workflow1', [workflowmanagementController::class, 'index'])->name('define-workflow1');
 
-    Route::get('/bankUpdate', [UpdateBankDetailsController::class, 'index'])->middleware('permission.redirect:canUpdateBankDetailsPermission')->name('bankUpdate');
 
-    Route::get('/bank-update/search-beneficiary/{type}', [UpdateBankDetailsController::class, 'updateBeneficiaryBank'])->middleware('permission.redirect:canSearchBankUpdate')->name('bank-update.search-beneficiary');
-
-    Route::post('/update-mobile', [UpdateBankDetailsController::class, 'updateMobile'])->middleware('permission:update mobile')->name('update-mobile');
-
-    Route::post('/update-bank', [UpdateBankDetailsController::class, 'updateBank'])->middleware('permission:update bank')->name('update-bank');
-
-
-    // Reject Approved Beneficiary
-    Route::controller(RejectApprovedBeneficiaryController::class)->group(function () {
-        Route::get('/reject-approved-beneficiary', 'index')->middleware('permission.redirect:canRejectApprovedBeneficiary')->name('reject-approved-beneficiary');
-        Route::get('/reject-approved-beneficiary/BeneficiaryDetails', 'editview')->middleware('permission.redirect:canViewDetailsToReject')->name('reject-approved-beneficiary.BeneficiaryDetails');
-        Route::post('/deActivebeneficiary', 'deActiveBeneficiary')->middleware('permission.redirect:canRejectBeneficiary')->name('beneficiary.deActivebeneficiary');
-    });
 
     // / Global Dynamic Workflow Routes
     Route::get('dynamic-workflow-config', WorkflowWizard::class)->middleware('permission.redirect:canDynamicWorkflowManagement')->name('dynamic-workflow-config');

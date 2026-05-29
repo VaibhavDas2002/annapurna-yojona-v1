@@ -23,10 +23,7 @@ class ApproverPermissionSeeder extends Seeder
             'Normal Entry Revert Allow',
             'view beneficiaries',
             'view reports',
-            'update bank details',
-            'search bank update',
-            'update mobile',
-            'update bank details',
+
             'view approver incomplete',
             'view users',
             'create users',
@@ -35,10 +32,7 @@ class ApproverPermissionSeeder extends Seeder
             'TakeActionForCaste',
             'ApproveCasteApplication',
             'RevertCasteApplication',
-            'RejectApprovedBeneficiary',
-            'Filter Applicant To Reject',
-            'View Details To Reject',
-            'Reject Beneficiary',
+
             'lb-application-list',
             'Bulk Actions Normal Entry Approver Allow',
             'Bulk Actions Normal Entry Reject Allow',

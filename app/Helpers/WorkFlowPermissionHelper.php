@@ -210,20 +210,7 @@ class WorkFlowPermissionHelper
         return self::hasPermission('view permission', $schemeId);
     }
 
-    public static function canUpdateBankDetails($schemeId = null): bool
-    {
-        return self::hasPermission('update bank details', $schemeId);
-    }
 
-    public static function canUpdateMobile($schemeId = null): bool
-    {
-        return self::hasPermission('update mobile', $schemeId);
-    }
-
-    public static function canUpdateBank($schemeId = null): bool
-    {
-        return self::hasPermission('update bank', $schemeId);
-    }
 
     public static function canViewUserPermisson($schemeId = null): bool
     {
@@ -285,15 +272,7 @@ class WorkFlowPermissionHelper
         return self::hasPermission('Reject Allow', $schemeId);
     }
 
-    public static function canUpdateBankDetailsPermission($schemeId = null): bool
-    {
-        return self::hasPermission('update bank details', $schemeId);
-    }
 
-    public static function canSearchBankUpdate($schemeId = null): bool
-    {
-        return self::hasPermission('search bank update', $schemeId);
-    }
 
     public static function canRevertAllow($schemeId = null): bool
     {
@@ -408,25 +387,7 @@ class WorkFlowPermissionHelper
         return self::hasPermission('EditRevertApplication', $schemeId);
     }
 
-    public static function canRejectApprovedBeneficiary($schemeId = null): bool
-    {
-        return self::hasPermission('RejectApprovedBeneficiary', $schemeId);
-    }
 
-    public static function canFilterApplicantToReject($schemeId = null): bool
-    {
-        return self::hasPermission('Filter Applicant To Reject', $schemeId);
-    }
-
-    public static function canViewDetailsToReject($schemeId = null): bool
-    {
-        return self::hasPermission('View Details To Reject', $schemeId);
-    }
-
-    public static function canRejectBeneficiary($schemeId = null): bool
-    {
-        return self::hasPermission('Reject Beneficiary', $schemeId);
-    }
 
     public static function canMasterTab($schemeId = null): bool
     {

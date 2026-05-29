@@ -61,12 +61,7 @@ $menuItems = [
 'icon' => $icons['workflow'],
 'permission' => 'canDynamicWorkflowManagement',
 ],
-[
-'label' => 'Update Bank Details',
-'route' => 'bankUpdate',
-'icon' => $icons['workflow'],
-'permission' => 'canUpdateBankDetailsPermission',
-],
+
 
 [
 'label' => 'Scheme Onboard',
@@ -110,12 +105,7 @@ $menuItems = [
 'permission' => 'canViewBeneficiaries',
 ],
 
-[
-'label' => 'Reject Approved Beneficiary',
-'route' => 'reject-approved-beneficiary',
-'icon' => $icons['default'] . $icons['dashboard_smile'],
-'permission' => 'canRejectApprovedBeneficiary',
-],
+
 
 [
 'label' => 'Update Mark Beneficiary Details',
