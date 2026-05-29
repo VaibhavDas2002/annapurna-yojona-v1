@@ -1,3 +1,3 @@
 <x-layouts.app>
-    <livewire:application-lists />
+    <livewire:application-lists :dropDown="false" />
 </x-layouts.app>

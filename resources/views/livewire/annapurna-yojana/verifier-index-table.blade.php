@@ -84,7 +84,6 @@
     @endif
 
 
-
     {{-- ── Filters ───────────────────────────────────────────────────────── --}}
     <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-4 space-y-3">
 
@@ -156,20 +155,19 @@
             class="h-1 w-full bg-gradient-to-r from-violet-500 via-indigo-500 to-violet-500
                    animate-pulse rounded-t-2xl">
         </div>
-
         <div class="overflow-x-auto">
             <table class="min-w-full text-sm">
-                <thead>
-                    <tr class="bg-violet-800 text-white text-xs uppercase tracking-wider">
-                        <th class="px-4 py-3 text-left whitespace-nowrap">Temp. Application ID</th>
-                        <th class="px-4 py-3 text-left whitespace-nowrap">Family Members Name</th>
-                        <th class="px-4 py-3 text-left whitespace-nowrap">Mobile No</th>
-                        <th class="px-4 py-3 text-left whitespace-nowrap">Aadhaar No</th>
-                        <th class="px-4 py-3 text-center whitespace-nowrap">Age</th>
-                        <th class="px-4 py-3 text-center whitespace-nowrap">Gender</th>
-                        <th class="px-4 py-3 text-left whitespace-nowrap">Address</th>
-                        <th class="px-4 py-3 text-center whitespace-nowrap">Status</th>
-                        <th class="px-4 py-3 text-center whitespace-nowrap">Action</th>
+                <thead style="background-color: #5b21b6 !important; color: #ffffff !important;" class="text-xs uppercase tracking-wider">
+                    <tr style="background-color: #5b21b6 !important; color: #ffffff !important;">
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-left whitespace-nowrap">Temp. Application ID</th>
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-left whitespace-nowrap">Family Members Name</th>
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-left whitespace-nowrap">Mobile No</th>
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-left whitespace-nowrap">Aadhaar No</th>
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-center whitespace-nowrap">Age</th>
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-center whitespace-nowrap">Gender</th>
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-left whitespace-nowrap">Address</th>
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-center whitespace-nowrap">Status</th>
+                        <th style="background-color: #5b21b6 !important; color: #ffffff !important; color: white !important;" class="px-4 py-3 text-center whitespace-nowrap">Action</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y-0">
@@ -393,8 +391,8 @@
                     border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/30">
 
             <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-                <label for="length" class="font-medium">Rows per page:</label>
-                <select id="length" wire:model.live="perPage"
+                <label for="perPage" class="font-medium">Rows per page:</label>
+                <select id="perPage" wire:model.live="perPage"
                     class="border border-gray-200 rounded-md px-2 py-1 text-xs
                            dark:bg-gray-700 dark:border-gray-600 dark:text-white
                            focus:ring-2 focus:ring-violet-500">
@@ -405,6 +403,7 @@
                 <span>
                     Showing
                     <strong>{{ $paginator->firstItem() ?? 0 }}</strong>–<strong>{{ $paginator->lastItem() ?? 0 }}</strong>
+                    of <strong>{{ number_format($paginator->total()) }}</strong> families
                 </span>
             </div>
 
