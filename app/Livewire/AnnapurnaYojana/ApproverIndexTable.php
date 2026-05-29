@@ -47,8 +47,14 @@ class ApproverIndexTable extends Component
         $this->resetPage();
     }
 
-    public function updatingSearch(): void { $this->resetPage(); }
-    public function updatingGender(): void { $this->resetPage(); }
+    public function updatingSearch(): void
+    {
+        $this->resetPage();
+    }
+    public function updatingGender(): void
+    {
+        $this->resetPage();
+    }
 
     public function mount()
     {
@@ -61,7 +67,7 @@ class ApproverIndexTable extends Component
     protected function ensureSchema(): void
     {
         try {
-            $conn = DB::connection('pgsql_ay');
+            $conn = DB::connection('pgsql_annapurna');
 
             // Columns to add to families
             $familiesCols = [
@@ -121,7 +127,7 @@ class ApproverIndexTable extends Component
         $this->gender        = '';
         $this->district_id   = null;
         $this->rural_urban   = null;
-        $this->subdivision_id= null;
+        $this->subdivision_id = null;
         $this->blockurban    = null;
         $this->gp_ward       = null;
         $this->resetPage();
@@ -225,7 +231,7 @@ class ApproverIndexTable extends Component
 
         try {
             if ($this->modalOpType === 'Approve') {
-                DB::connection('pgsql_ay')->update("
+                DB::connection('pgsql_annapurna')->update("
                     UPDATE dbt_apy.families 
                     SET    next_level_role_id = 100, 
                            is_reverted = 0,
@@ -236,7 +242,7 @@ class ApproverIndexTable extends Component
                     WHERE  id = ?
                 ", [$this->modalRemarks, $this->selectedFamilyId]);
 
-                DB::connection('pgsql_ay')->update("
+                DB::connection('pgsql_annapurna')->update("
                     UPDATE dbt_apy.family_members 
                     SET    next_level_role_id = 100, 
                            is_reverted = 0,
@@ -246,7 +252,7 @@ class ApproverIndexTable extends Component
 
                 session()->flash('success', 'Family application approved and finalized successfully.');
             } elseif ($this->modalOpType === 'Revert') {
-                DB::connection('pgsql_ay')->update("
+                DB::connection('pgsql_annapurna')->update("
                     UPDATE dbt_apy.families 
                     SET    next_level_role_id = 0, 
                            is_reverted = 1,
@@ -257,7 +263,7 @@ class ApproverIndexTable extends Component
                     WHERE  id = ?
                 ", [$this->modalRemarks, $this->selectedFamilyId]);
 
-                DB::connection('pgsql_ay')->update("
+                DB::connection('pgsql_annapurna')->update("
                     UPDATE dbt_apy.family_members 
                     SET    next_level_role_id = 0, 
                            is_reverted = 1,
@@ -286,7 +292,7 @@ class ApproverIndexTable extends Component
             WHERE  {$where}
         ";
 
-        $total = (int) DB::connection('pgsql_ay')
+        $total = (int) DB::connection('pgsql_annapurna')
             ->selectOne($countSql, $bindings)
             ->total;
 
@@ -304,7 +310,7 @@ class ApproverIndexTable extends Component
         ";
 
         $familyIds = collect(
-            DB::connection('pgsql_ay')
+            DB::connection('pgsql_annapurna')
                 ->select($familyIdSql, array_merge($bindings, [$this->perPage, $offset]))
         )->pluck('family_id')->toArray();
 
@@ -350,8 +356,8 @@ class ApproverIndexTable extends Component
                 ORDER  BY f.id ASC, fm.is_hof DESC, fm.id ASC
             ";
 
-            $rows     = DB::connection('pgsql_ay')->select($membersSql, $memberBindings);
-            
+            $rows     = DB::connection('pgsql_annapurna')->select($membersSql, $memberBindings);
+
             // Resolve location names and status dynamically
             $this->resolveLocationNames($rows);
 

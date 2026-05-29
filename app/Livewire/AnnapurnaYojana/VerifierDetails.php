@@ -29,7 +29,7 @@ class VerifierDetails extends Component
     protected function ensureSchema(): void
     {
         try {
-            $conn = DB::connection('pgsql_ay');
+            $conn = DB::connection('pgsql_annapurna');
 
             // Columns to add to families
             $familiesCols = [
@@ -92,7 +92,7 @@ class VerifierDetails extends Component
             WHERE  id = ? 
             LIMIT  1
         ";
-        $this->family = DB::connection('pgsql_ay')->selectOne($familySql, [$this->familyId]);
+        $this->family = DB::connection('pgsql_annapurna')->selectOne($familySql, [$this->familyId]);
 
         if ($this->family) {
             $f = $this->family;
@@ -140,8 +140,8 @@ class VerifierDetails extends Component
             WHERE  family_id = ? 
             ORDER  BY is_hof DESC, id ASC
         ";
-        $this->members = DB::connection('pgsql_ay')->select($membersSql, [$this->familyId]);
-        
+        $this->members = DB::connection('pgsql_annapurna')->select($membersSql, [$this->familyId]);
+
         foreach ($this->members as $m) {
             $m->is_hof = $m->is_hof ?? false;
         }
