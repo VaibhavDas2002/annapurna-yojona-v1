@@ -35,7 +35,6 @@
                 Send OTP
             </button>
         </div> -->
-        </div>
     </form>
     
     <script>

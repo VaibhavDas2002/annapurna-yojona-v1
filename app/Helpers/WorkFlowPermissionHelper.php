@@ -186,50 +186,14 @@ class WorkFlowPermissionHelper
         return $entryTypes;
     }
 
-    public static function canModifyCaste($schemeId = null): bool
-    {
-        return self::hasPermission('modify caste', $schemeId);
-    }
 
-    public static function canEditCaste($schemeId = null): bool
-    {
-        return self::hasPermission('edit caste', $schemeId);
-    }
-
-    public static function canUpdateCaste($schemeId = null): bool
-    {
-        return self::hasPermission('update caste', $schemeId);
-    }
-
-    public static function canCasteModification($schemeId = null): bool
-    {
-        return self::hasPermission('view caste modification list', $schemeId);
-    }
 
     public static function canBeneficiaryDetails($schemeId = null): bool
     {
         return self::hasPermission('view beneficiary details', $schemeId);
     }
 
-    public static function canVerifierIncomplete($schemeId = null): bool
-    {
-        return self::hasPermission('view verifier incomplete', $schemeId);
-    }
 
-    public static function canApproverIncomplete($schemeId = null): bool
-    {
-        return self::hasPermission('view approver incomplete', $schemeId);
-    }
-
-    public static function canUpdateIncomplete($schemeId = null): bool
-    {
-        return self::hasPermission('update incomplete', $schemeId);
-    }
-
-    public static function canRevertIncomplete($schemeId = null): bool
-    {
-        return self::hasPermission('revert incomplete', $schemeId);
-    }
 
     public static function canViewOffices($schemeId = null): bool
     {
@@ -341,11 +305,7 @@ class WorkFlowPermissionHelper
         return self::hasPermission('lb-application-list', $schemeId) || self::hasPermission('submit-lb-form', $schemeId);
     }
 
-    public static function canIncomplete($schemeId = null): bool
-    {
-        return self::hasPermission('view verifier incomplete', $schemeId)
-            || self::hasPermission('view approver incomplete', $schemeId);
-    }
+
 
     public static function canDutyManagement($schemeId = null): bool
     {
@@ -353,11 +313,7 @@ class WorkFlowPermissionHelper
             || self::hasPermission('view offices', $schemeId) || self::hasPermission('manage role mappings', $schemeId);
     }
 
-    public static function canCaste($schemeId = null): bool
-    {
-        return self::hasPermission('view caste modification list', $schemeId)
-            || self::hasPermission('modify caste', $schemeId);
-    }
+
 
     public static function canUserPermission($schemeId = null): bool
     {
@@ -445,30 +401,7 @@ class WorkFlowPermissionHelper
         return self::hasPermission($permission, $schemeId);
     }
 
-    public static function canVerifyCastApplication($schemeId = null): bool
-    {
-        return self::hasPermission('VerifyCasteApplication', $schemeId);
-    }
 
-    public static function canApproveCastApplication($schemeId = null): bool
-    {
-        return self::hasPermission('ApproveCasteApplication', $schemeId);
-    }
-
-    public static function canViewCastApplication($schemeId = null): bool
-    {
-        return self::hasPermission('ViewCastApplication', $schemeId);
-    }
-
-    public static function canTakeActionForCaste($schemeId = null): bool
-    {
-        return self::hasPermission('TakeActionForCaste', $schemeId);
-    }
-
-    public static function canRevertCastApplication($schemeId = null): bool
-    {
-        return self::hasPermission('RevertCasteApplication', $schemeId);
-    }
 
     public static function canEditRevertApplication($schemeId = null): bool
     {
@@ -521,50 +454,9 @@ class WorkFlowPermissionHelper
         return self::hasPermission('scheme-capacity-setting', $schemeId);
     }
 
-    public static function canImportJanmaMrityuData($schemeId = null): bool
-    {
-        return self::hasPermission('import-janma-mrityu-data', $schemeId);
-    }
 
-    public static function canReActivateDeathIncident($schemeId = null): bool
-    {
-        return self::hasPermission('re-activate-death-incident', $schemeId);
-    }
 
-    public static function canJanmyaMrityuBeneficiaryList($schemeId = null): bool
-    {
-        return self::hasPermission('janmya-mrityu-beneficiary-list', $schemeId);
-    }
 
-    public static function canCMODataFetch($schemeId = null): bool
-    {
-        return self::hasPermission('cmo-data-fetch', $schemeId);
-    }
-
-    public static function canSarasoriMukhyamantri($schemeId = null): bool
-    {
-        return self::hasPermission('sarasori-mukhyamantri', $schemeId);
-    }
-
-    public static function canCMOGrievanceMark($schemeId = null): bool
-    {
-        return self::hasPermission('cmo-grievance-mark', $schemeId);
-    }
-
-    public static function canBackFromJb($schemeId = null): bool
-    {
-        return self::hasPermission('back-from-jb', $schemeId);
-    }
-
-    public static function canBackFromJbVerifierButton($schemeId = null): bool
-    {
-        return self::hasPermission('back-from-jb-verifier-button', $schemeId);
-    }
-
-    public static function canBackFromJbApproverButton($schemeId = null): bool
-    {
-        return self::hasPermission('back-from-jb-approver-button', $schemeId);
-    }
 
     public static function canUpdateMarkBeneficiaryDetails($schemeId = null): bool
     {

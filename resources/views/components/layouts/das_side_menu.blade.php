@@ -27,7 +27,7 @@ $menuItems = [
 'icon' => $icons['default'] . $icons['dashboard_smile'],
 ],
 [
-'label' => 'ANNAPURNA BHANDAR',
+'label' => 'ANNAPURNA Yojana',
 'key' => 'LBFrom',
 'icon' => $icons['default'] . $icons['dashboard_smile'],
 'permission' => 'canAnyLbMenu',
@@ -67,26 +67,7 @@ $menuItems = [
 'icon' => $icons['workflow'],
 'permission' => 'canUpdateBankDetailsPermission',
 ],
-[
-'label' => 'Incomplete',
-'key' => 'Incomplete',
-'icon' => $icons['default'],
-'permission' => 'canIncomplete',
-'children' => [
-[
-'label' => 'Verifier Incomplete',
-'route' => 'incomplete.types',
-'params' => 'verifier',
-'permission' => 'canVerifierIncomplete',
-],
-[
-'label' => 'Approver Incomplete',
-'route' => 'incomplete.types',
-'params' => 'approver',
-'permission' => 'canApproverIncomplete',
-],
-],
-],
+
 [
 'label' => 'Scheme Onboard',
 'key' => 'SchemeOnboard',
@@ -128,25 +109,7 @@ $menuItems = [
 'icon' => $icons['workflow'],
 'permission' => 'canViewBeneficiaries',
 ],
-[
-'label' => 'Caste Management',
-'key' => 'CasteManagement',
-'icon' => $icons['default'],
-'permission' => 'canCaste',
-'children' => [
-['label' => 'Change Caste', 'route' => 'caste-management', 'permission' => 'canModifyCaste'],
-[
-'label' => 'Report List',
-'route' => 'caste-management-request-list',
-'permission' => 'canCasteModification',
-],
-[
-'label' => 'Process Caste Application',
-'route' => 'update-caste-management-details',
-'permission' => 'canModifyCaste',
-],
-],
-],
+
 [
 'label' => 'Reject Approved Beneficiary',
 'route' => 'reject-approved-beneficiary',
@@ -154,12 +117,6 @@ $menuItems = [
 'permission' => 'canRejectApprovedBeneficiary',
 ],
 
-[
-'label' => 'Back From JB',
-'route' => 'backfromjb',
-'icon' => $icons['default'] . $icons['dashboard_smile'],
-'permission' => 'canBackFromJb',
-],
 [
 'label' => 'Update Mark Beneficiary Details',
 'key' => 'UpdateMarkBeneficiaryDetails',
@@ -220,9 +177,9 @@ break;
     <!-- Logo -->
     <div
         class="flex flex-col items-center border-b border-gray-700 dark:border-gray-700 bg-white {{ config('jblbConf.das_logo_class') }}">
-        <img src="{{ asset('images/' . config('jblbConf.das_logo')) }}" alt="Lakshmir Bhandar"
+        <img src="{{ asset('images/' . config('jblbConf.das_logo')) }}" alt="Annapurna Yojana"
             class="{{ config('jblbConf.logo_das_width') }}" />
-        @if (config('jblbConf.is_lb'))
+        @if (config('jblbConf.is_ay'))
         <template x-if="sidebar">
             <div class="text-center font-bold text-sm text-blue-600">{{ config('jblbConf.headLine') }}</div>
         </template>
@@ -239,7 +196,6 @@ break;
         $isActive = !$isGroup && request()->routeIs($item['route']);
         $isGroupActive = $isGroup && $activeMenu === $item['key'];
         @endphp
-
 
         @if ($canShow)
         <div>
@@ -301,24 +257,6 @@ break;
         </div>
         @endif
         @endforeach
-
-        <a href="{{ route('annapurna-yojana-verification') }}"
-            class="flex items-center w-full px-4 py-2 text-left hover:bg-slate-700 dark:hover:bg-slate-700 text-slate-200 hover:text-white rounded">
-            <svg class="w-5 h-5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-
-            </svg>
-            <span x-show="sidebar" class="mr-2 truncate">Annapurna Yojana Verification</span>
-        </a>
-
-        <a href="{{ route('annapurna-yojana-approval') }}"
-            class="flex items-center w-full px-4 py-2 text-left hover:bg-slate-700 dark:hover:bg-slate-700 text-slate-200 hover:text-white rounded">
-            <svg class="w-5 h-5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-
-            </svg>
-            <span x-show="sidebar" class="mr-2 truncate">Annapurna Yojana Approval</span>
-        </a>
 
     </nav>
 </aside>

@@ -1,4 +1,5 @@
-<div class="grid md:grid-cols-3 gap-4 mt-4">
+<div x-data="{ sameAsPermanent: false, formData: @entangle('formData').live, sync() { if(this.sameAsPermanent) { this.$nextTick(() => { setTimeout(() => { document.querySelectorAll('[name^=\'cur_\']').forEach(el => delete el.dataset.loaded); if(typeof window.initMasterData === 'function') window.initMasterData(); }, 100); });  } } }" x-init="$watch('sameAsPermanent', v => sync()); ">
+<div class="grid md:grid-cols-2 gap-4 mt-4">
 <div    wire:key="field-norm-ifscode">
     <x-form.input
     type="text"
@@ -8,6 +9,7 @@
     
     
     required
+    
     
     
     wire:model.live="formData.ifscode"
@@ -24,6 +26,7 @@
     required
     
     
+    
     wire:model.live="formData.bankname"
     
 />
@@ -38,12 +41,11 @@
     required
     
     
+    
     wire:model.live="formData.bank_branch_name"
     
 />
-</div></div>
-<div class="grid md:grid-cols-2 gap-4 mt-4">
-<div    wire:key="field-norm-bankaccountnumber">
+</div><div    wire:key="field-norm-bankaccountnumber">
     <x-form.input
     type="text"
     name="bankaccountnumber"
@@ -52,6 +54,7 @@
     
     
     required
+    
     
     
     wire:model.live="formData.bankaccountnumber"
@@ -68,7 +71,9 @@
     required
     
     
+    
     wire:model.live="formData.confirmbankaccountnumber"
     x-on:input.stop="$el.value = $el.value.replace(/[^0-9]/g, ''); $wire.set('formData.confirmbankaccountnumber', $el.value, false)"
 />
 </div></div>
+</div>

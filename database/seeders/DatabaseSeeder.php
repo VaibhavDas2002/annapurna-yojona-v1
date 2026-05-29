@@ -41,9 +41,8 @@ class DatabaseSeeder extends Seeder
             UpdateNextLevelRoleIdSeeder::class,
             OpTypeSeeder::class,
             DsPhaseSeeder::class,
-            CmoAtrSeeder::class,
-            CmoRedressedStatusSeeder::class,
-            BackFromJBSeeder::class,
+
+
         ]);
     }
 }

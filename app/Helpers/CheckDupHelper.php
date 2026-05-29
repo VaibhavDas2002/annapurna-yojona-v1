@@ -3,7 +3,7 @@
 namespace App\Helpers;
 
 use App\Models\BeneficiaryAadhaar;
-use App\Models\ApplicantIncompleteDetail;
+
 use App\Models\BeneficiaryBankDetail;
 use App\Models\BeneficiaryPersonalDetail;
 
@@ -24,13 +24,7 @@ class CheckDupHelper
                 ->whereRelation('personal', 'next_level_role_id', '!=', -100)
                 ->exists();
 
-            $existsInIncomplete = ApplicantIncompleteDetail::whereJsonContains('new_value->aadhaar_no', $value)
-                ->whereHas('incompleteType', function ($q) use ($incompleteType) {
-                    $q->where('table_column', 'LIKE', "%{$incompleteType}%");
-                })
-                ->exists();
-
-            if ($existsInCommonList || $existsInIncomplete) {
+            if ($existsInCommonList) {
                 return "Duplicate found for Aadhaar: {$value}";
             }
 
@@ -46,13 +40,7 @@ class CheckDupHelper
                 ->exists();
 
             // dd($existsInCommonList);
-            $existsInIncomplete = ApplicantIncompleteDetail::whereJsonContains('new_value->mobile_no', $value)
-                ->whereHas('incompleteType', function ($q) use ($incompleteType) {
-                    $q->where('table_column', 'LIKE', "%{$incompleteType}%");
-                })
-                ->exists();
-
-            if ($existsInCommonList || $existsInIncomplete) {
+            if ($existsInCommonList) {
                 return "Duplicate found for Mobile: {$value}";
             }
 
@@ -67,13 +55,7 @@ class CheckDupHelper
                 ->whereRelation('personal', 'next_level_role_id', '!=', -100)
                 ->exists();
 
-            $existsInIncomplete = ApplicantIncompleteDetail::whereJsonContains('new_value->account_number', $value)
-                ->whereHas('incompleteType', function ($q) use ($incompleteType) {
-                    $q->where('table_column', 'LIKE', "%{$incompleteType}%");
-                })
-                ->exists();
-
-            if ($existsInCommonList || $existsInIncomplete) {
+            if ($existsInCommonList) {
                 return "Duplicate found for Bank Account: {$value}";
             }
 
