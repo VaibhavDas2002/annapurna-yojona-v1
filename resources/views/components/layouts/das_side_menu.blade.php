@@ -86,13 +86,13 @@ break;
 }
 @endphp
 <aside :class="sidebar ? 'w-60' : 'w-16'"
-    class="transition-all duration-300 bg-gradient-to-b from-[#b34700] via-[#e06b00] to-[#f5a623] shadow-2xl flex flex-col h-screen border-r border-orange-900/30"
+    class="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#b34700] via-[#e06b00] to-[#f5a623] shadow-2xl flex flex-col h-screen border-r border-orange-900/30"
     x-data="{ activeMenu: '{{ $activeMenu }}' }">
     <!-- Logo -->
     <div
         class="flex flex-col items-center border-b border-orange-900/30 bg-white py-2 {{ config('jblbConf.das_logo_class') }}">
         <img src="{{ asset('images/' . config('jblbConf.das_logo')) }}" alt="Annapurna Yojana"
-            class="{{ config('jblbConf.logo_das_width') }}" />
+            class="max-h-14 h-auto w-auto object-contain {{ config('jblbConf.logo_das_width') }}" />
         @if (config('jblbConf.is_ay'))
         <template x-if="sidebar">
             <div class="text-center font-bold text-sm text-orange-700">{{ config('jblbConf.headLine') }}</div>

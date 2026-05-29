@@ -36,6 +36,23 @@ if ($portal == 'ay') {
     $initiallogo = 'jb_logo.png';
     $indexName = 'Department of Finance | Government of West Bengal';
     $footerDescription = 'A comprehensive Direct Benefit Transfer initiative by the Government of West Bengal for holistic development and welfare.';
+} else if ($portal == 'lb') {
+    $title = 'Lakshmir Bhandar | Government of West Bengal';
+    $headLine = 'Lakshmir Bhandar';
+    $logo = 'biswo_lb.png';
+    $headerlogo = 'Emblem_of_India.png';
+    $logo_class = 'w-48 sm:w-64 mb-4';
+    $das_logo = 'biswo_lb.png';
+    $logo_das_width = 'w-24';
+    $das_logo_class = 'p-2';
+    $bg_image = 'background-cover.jpg';
+    $schemeIds = [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 17, 19, 20];
+    $footerText = 'Design and developed By NIC.';
+    $deptName = 'Women and Child Development & Social Welfare Department';
+    $indexName = 'Lakshmir Bhandar | Government of West Bengal';
+    $initiallogo = 'biswo_lb.png';
+    $dept_logo = 'biswo_lb.png';
+    $footerDescription = 'A comprehensive Direct Benefit Transfer initiative by the Government of West Bengal for holistic development and welfare.';
 } else if ($portal == 'ub') {
     $title = 'Unnayan Bangla | Government of West Bengal';
     $headLine = 'Unnayan Bangla';
@@ -59,9 +76,9 @@ if ($portal == 'ay') {
     $logo = 'biswo.png';
     $headerlogo = 'Emblem_of_India.png';
     $logo_class = 'w-48 sm:w-64 mb-4';
-    $das_logo = 'biswo.png';
-    $logo_das_width = 'w-8';
-    $das_logo_class = 'p-1';
+    $das_logo = 'biswo_bangla.png';
+    $logo_das_width = 'w-20';
+    $das_logo_class = 'p-2';
     $bg_image = 'background-cover.jpg';
     $schemeIds = [21];
     $footerText = 'Design and develpod By NIC.';
