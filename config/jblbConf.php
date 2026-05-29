@@ -7,7 +7,7 @@ if ($portal == 'ay') {
     $logo = 'biswo.png';
     $headerlogo = 'Emblem_of_India.png';
     $logo_class = 'w-48 sm:w-64 mb-4';
-    $das_logo = 'biswo.png';
+    $das_logo = 'default-user.png';
     $logo_das_width = 'w-8';
     $das_logo_class = 'p-1';
     $bg_image = 'background-cover.jpg';
@@ -43,7 +43,7 @@ if ($portal == 'ay') {
     $headerlogo = 'header_logo.png';
     $initiallogo = 'ub_logo.png';
     $logo_class = 'w-56 sm:w-64 mb-4';
-    $das_logo = 'ub_logo.png';
+    $das_logo = 'default-user.png';
     $logo_das_width = 'w-12';
     $das_logo_class = 'p-2';
     $bg_image = 'jb_bg.png';
