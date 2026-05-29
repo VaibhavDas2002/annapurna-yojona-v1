@@ -14,12 +14,25 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->char('mobile_no', length: 10);
+            $table->smallInteger('flag_sent_otp')->default(1);
+            $table->boolean('first_time_set_password')->nullable();
+            $table->timestamp('password_set_time')->nullable();
+            $table->timestamp('password_expires_at')->nullable();
+            $table->string('last_otp')->nullable();
+            $table->timestamp('last_otp_generation_time')->nullable();
+            $table->timestamp('last_otp_expire_time')->nullable();
+            $table->smallInteger('is_active')->default(1);
+            $table->index('mobile_no');
+            $table->index('email');
+            $table->index('id');
         });
+        
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
